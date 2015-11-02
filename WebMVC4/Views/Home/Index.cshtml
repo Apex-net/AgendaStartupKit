@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<WebMVC4.Model.AGE_UTENTI>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Kitchen Sink";
+}
+
+<style>
+    .white-border { border: 1px solid white; }
+</style>
+
+<h3>Kitchen Sink</h3>
+
+<div class="divider"></div>
+<div class="section">
+    <h5>Esempio responsive Grid (provare il resize)</h5>
+    <div class="row blue lighten-2  center-align">
+        <div class="col s12"><p>s12</p></div>
+    </div>
+    <div class="row green lighten-2 center-align">
+        <div class="col s12 m4 l2 white-border"><p>s12 m4</p></div>
+        <div class="col s12 m4 l8 white-border"><p>s12 m4</p></div>
+        <div class="col s12 m4 l2 white-border"><p>s12 m4</p></div>
+    </div>
+    <div class="row orange lighten-2  center-align">
+        <div class="col s12 m6 l3 white-border"><p>s12 m6 l3</p></div>
+        <div class="col s12 m6 l3 white-border"><p>s12 m6 l3</p></div>
+        <div class="col s12 m6 l3 white-border"><p>s12 m6 l3</p></div>
+        <div class="col s12 m6 l3 white-border"><p>s12 m6 l3</p></div>
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="section">
+    <h5>Esempio responsive Table (provare il resize) con PagedList</h5>
+    <table class="bordered striped highlight responsive-table">
+        <thead>
+            <tr>
+                <th data-field="col1">col1 nome</th>
+                <th data-field="col2">col2 cognome</th>
+                <th data-field="col3">col3 user</th>
+                <th data-field="col4">col4 number</th>
+                <th data-field="col5">col5 number</th>
+                <th data-field="col6">col6 date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var utente in Model)
+            {
+                <tr>
+                    <td>@utente.Nome</td>
+                    <td>@utente.Cognome</td>
+                    <td>@utente.UserId</td>
+                    <td>123</td>
+                    <td>4,008</td>
+                    <td>@DateTime.Now.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new {page}))
+</div>
+
+<div class="divider"></div>
+<div class="section">
+    <h5>Esempio pulsanti</h5>
+    <a class="waves-effect waves-light btn" onclick=" alertify.alert('Alert normale'); ">Test Alertify alert</a>
+    <a class="waves-effect waves-light btn" onclick=" alertify.confirm('confirm normale'); "><i class="material-icons left">cloud</i>Test Alertify confirm</a>
+    <a class="waves-effect waves-light btn" onclick=" alertify.success('success log normale'); "><i class="material-icons left">thumb_up</i>Test Alertify log success</a>
+    <a class="waves-effect waves-light btn" onclick=" alertify.error('success log normale'); "><i class="material-icons left">thumb_down</i>Test Alertify log error</a>
+</div>
+
+<div class="divider"></div>
+<div class="section">
+    <h5>Esempio card</h5>
+    <div class="row">
+        <div class="col s12 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/La_rocca_malatestiana_di_Cesena.jpg/1280px-La_rocca_malatestiana_di_Cesena.jpg">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l9">
+            <div class="valign-wrapper" style="min-height: 500px">
+                <h5 class="valign center" style="width: 100%;">la rocca malatestiana di cesena (esempio di allineamento verticale)</h5>
+            </div>
+        </div>
+    </div>
+</div>
