@@ -1,8 +1,8 @@
 [assembly: WebActivatorEx.PostApplicationStartMethod(
-    typeof($safeprojectname$.App_Start.ORMProfilerPackage), "PostStart")]
+    typeof(WebMVC4.App_Start.ORMProfilerPackage), "PostStart")]
 
 // ReSharper disable once CheckNamespace
-namespace $safeprojectname$.App_Start
+namespace WebMVC4.App_Start
 {
     using SD.Tools.OrmProfiler.Interceptor;
 
@@ -10,7 +10,7 @@ namespace $safeprojectname$.App_Start
     {
         public static void PostStart()
         {
-            InterceptorCore.Initialize("$safeprojectname$");
+            InterceptorCore.Initialize("WebMVC4");
         }
     }
 }
