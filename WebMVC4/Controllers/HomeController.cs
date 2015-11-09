@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Agenda.Model;
 using PagedList;
-using WebMVC4.Model;
 
 namespace WebMVC4.Controllers
 {
@@ -13,7 +13,7 @@ namespace WebMVC4.Controllers
         // GET: /Home/
         public ActionResult Index(int? page)
         {
-            var ctx = new Context();
+            var ctx = new AgendaContext();
 
             const int pageSize = 15;
             int pageNumber = (page ?? 1);
