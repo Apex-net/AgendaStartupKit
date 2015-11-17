@@ -1,5 +1,0 @@
-﻿<configuration>
-    <appSettings>
-        <add key="ORMProfilerEnabled" value="true"/>
-    </appSettings>
-</configuration>

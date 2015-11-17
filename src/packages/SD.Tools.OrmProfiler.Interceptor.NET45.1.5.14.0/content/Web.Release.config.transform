@@ -1,9 +1,0 @@
-﻿<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <appSettings>
-        <add key="ORMProfilerEnabled"
-             value="false"
-             
-             xdt:Locator="Match(key)"
-             xdt:Transform="SetAttributes(value)"/>
-    </appSettings>
-</configuration>
