@@ -26,14 +26,12 @@ ForEach ($file in $files) {
     {
         Write-Host  $file.FullName `n  "found at lines: " $(Select-String -Path $file.fullName -Pattern $searchPattern | Select-Object LineNumber) `n
 
-         <# commentare/scommentare per fare la ricerca/sostituzione  #>
+        <# commentare/scommentare per fare la ricerca/sostituzione #>
         (Get-Content $file.fullName) -replace $searchPattern, $replaceString | `
             Set-Content $file.fullName -Force -Encoding UTF8   
            
         $i++
     }
-    
-  
 }
 
 Write-Host $i "files modificati"
