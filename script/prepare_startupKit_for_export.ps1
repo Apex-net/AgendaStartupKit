@@ -1,4 +1,4 @@
-﻿$path = "..\*"
+﻿$path = "..\src\*"
 $includeExtensions = @("*.asax","*.config","*.cshtml","*.csproj","*.cs")
 $searchPattern = "WebMVC4" 
 $excludeDirs = @("*\obj\*","*Scripts\i18n*","*\bin\*","*\packages\*")
