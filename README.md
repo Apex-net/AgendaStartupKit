@@ -31,20 +31,20 @@ Nel Visual Studio:
 
 ## Note per gli sviluppatori
 
-:warning: Queste note sono per gli sviluppatori di `AgendaStartupKit`. Se volete soltanto usare questi template, queste note non vi sono necessariamente utili.
+:information_source: Queste note sono per gli sviluppatori di `AgendaStartupKit`. Se volete soltanto usare questi template, queste note non vi sono necessariamente utili.
 
 ### Come esportare
 
 0. Assicurare di avere salvato tutte le modifiche
 0. Lanciare `script\prepare_startupKit_for_export.bat` (questo script vi modificherà diversi file che alla fine di questa procedura dovranno essere "annullati" manualmente e/o tramite `git`)
-0. `File > Export Template...`
-0. Project template
+0. Nel Visual Studio: `File > Export Template...`
+0. Selezionare `Project template` (dovrebbe essere gia selezionato)
 0. Selezionare il progetto (ad esempio: `WebMVC4`)
-0. Compilare i campi:
+0. Compilare i campi in base al template progetto (ad esempio):
    - `Template name:` **Agenda Web Application (MVC4)**
    - `Template description:` **Template progetto con MVC4, EF5 e materializecss**
    - `Output location:` dovrebbe essere compilato in automatico (ad esempio: `C:\Users\a.donmez\Documents\Visual Studio 2013\My Exported Templates\Agenda Web Application (MVC4).zip`)
-   - (Opzionale) `Automatically import the template into Visual Studio:` _selezionato_ (vedi [come installare](#come-installare))
+   - (Opzionalmente selezionare durante lo sviluppo) `Automatically import the template into Visual Studio` (vedi [come installare](#come-installare) per la modalità di installazione migliore)
 
 ### Come rilasciare
 
