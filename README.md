@@ -10,7 +10,7 @@ Progetto template con cui partire coi nuovi progetti simil-agenda.
 
 | :warning: |
 | :--- |
-| Il percorso esatto potrebbe cambiare in base alla versione di Visual Studio ed, ovviamente, il nome utente. |
+| Il percorso esatto potrebbe cambiare in base alla versione di Visual Studio ed, ovviamente, il nome utente. (In Visual Studio, vedi `User project templates location` in `Tools > Options > Projects and Solutions > General`) ![Percorso template](https://raw.githubusercontent.com/Apex-net/AgendaStartupKit/uploads/project-templates-location.jpg) |
 | Per non confondersi cancellare eventuali versioni precedenti. |
 | Se il percorso (od una sua parte) non esiste, potrebbe essere sufficiente crearlo. |
 | Di solito i template nuovi sono subito disponibili, ma nel dubbio reavviare Visual Studio. |
