@@ -36,7 +36,7 @@ Nel Visual Studio:
 ### Come esportare
 
 0. Assicurare di avere salvato tutte le modifiche
-0. Lanciare `script\prepare_startupKit_for_export.bat`
+0. Lanciare `script\prepare_startupKit_for_export.bat` (questo script vi modificherà diversi file che alla fine di questa procedura dovranno essere "annullati" manualmente e/o tramite `git`)
 0. `File > Export Template...`
 0. Project template
 0. Selezionare il progetto (ad esempio: `WebMVC4`)
@@ -48,5 +48,5 @@ Nel Visual Studio:
 
 ### Come rilasciare
 
-0. Creare un tag in git usando [Semantic Versioning](http://semver.org/) (ad esempio: `v0.1`)
+0. Creare un tag in `git` usando [Semantic Versioning](http://semver.org/) (ad esempio: `v0.1`)
 0. Dopo aver pubblicato questo tag in GitHub, creare una release a partire da quest'ultimo, quindi caricare zip esportato (vedi [come esportare](#come-esportare)) usando il seguente "naming convention": (ad esempio) `AgendaStartupKit.WebMVC4-v0.1.zip`)
