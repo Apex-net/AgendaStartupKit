@@ -40,3 +40,8 @@ Nel Visual Studio:
    - `Template description:` **Template progetto con MVC4, EF5 e materializecss**
    - `Output location:` dovrebbe essere compilato in automatico (ad esempio: `C:\Users\a.donmez\Documents\Visual Studio 2013\My Exported Templates\Agenda Web Application (MVC4).zip`)
    - (Opzionale) `Automatically import the template into Visual Studio:` _selezionato_ (vedi [come installare](#come-installare))
+
+### Come rilasciare
+
+0. Creare un tag in git usando [Semantic Versioning](http://semver.org/) (ad esempio: `v0.1`)
+0. Dopo aver pubblicato questo tag in GitHub, creare una release a partire da quest'ultimo, quindi caricare zip esportato (vedi [come esportare](#come-esportare)) usando il seguente "naming convention": (ad esempio) `AgendaStartupKit.WebMVC4-v0.1.zip`)
