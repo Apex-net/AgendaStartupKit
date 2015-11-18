@@ -20,8 +20,13 @@ Progetto template con cui partire coi nuovi progetti simil-agenda.
 
 Nel Visual Studio:
 
-0.  `File > New > Project`
-0.  Selezionare template `Agenda Web Application (MVC4)` nel percorso `Installed > Templates > Visual C# > Web`
+0. `File > New > Project`
+0. Selezionare template `Agenda Web Application (MVC4)` nel percorso `Installed > Templates > Visual C# > Web`
+0. Compilare i restanti dei campi (ad es.: nomi, percorso, ecc.)
+
+| :warning: |
+| :--- |
+| Poiché questi template funzionino, bisogna assicurare che la solution Visual Studio sia in un livello superiore rispetto al progetto; altrimenti i riferimenti ai pacchetti installati via NuGet saranno errati. |
 
 
 ## Note per gli sviluppatori
