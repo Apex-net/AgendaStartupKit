@@ -1,5 +1,7 @@
-﻿@model PagedList.IPagedList<Agenda.Model.Utenti>
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc
+
+@model PagedList.IPagedList<Agenda.Model.Utenti>
+
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
@@ -55,7 +57,7 @@
                     <td>@utente.UserId</td>
                     <td>123</td>
                     <td>4,008</td>
-                    <td>@DateTime.Now.ToString()</td>
+                    <td>@DateTime.Now</td>
                 </tr>
             }
         </tbody>
@@ -83,7 +85,7 @@
         <div class="col s12 l3">
             <div class="card">
                 <div class="card-image">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/La_rocca_malatestiana_di_Cesena.jpg/1280px-La_rocca_malatestiana_di_Cesena.jpg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/La_rocca_malatestiana_di_Cesena.jpg/1280px-La_rocca_malatestiana_di_Cesena.jpg" alt="La rocca maletestiana di Cesena">
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">

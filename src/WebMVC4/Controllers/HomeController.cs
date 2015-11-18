@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Agenda.Model;
-using PagedList;
-
-namespace WebMVC4.Controllers
+﻿namespace WebMVC4.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using Agenda.Model;
+    using PagedList;
+
     public class HomeController : Controller
     {
+        private const int PageSize = 15;
+
         // GET: /Home/
-        public ActionResult Index(int? page)
+        public ActionResult Index(int page = 1)
         {
-            var ctx = new AgendaContext();
+            using (var context = new AgendaContext())
+            {
+                var utenti = context.AGE_UTENTI.Where(u => u.Nome.Contains("FABIO"))
+                                    .OrderBy(u => u.Cognome)
+                                    .ToPagedList(page, PageSize);
 
-            const int pageSize = 15;
-            int pageNumber = (page ?? 1);
-            var utenti = ctx.AGE_UTENTI.Where(u => u.Nome.Contains("FABIO")).OrderBy(u => u.Cognome).ToPagedList(pageNumber, pageSize);
-
-            return this.View(utenti);
+                return this.View(utenti);
+            }
         }
     }
 }

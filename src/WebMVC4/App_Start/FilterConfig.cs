@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace WebMVC4
+﻿namespace WebMVC4
 {
+    using System.Web.Mvc;
+
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
