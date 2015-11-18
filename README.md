@@ -26,7 +26,7 @@ Nel Visual Studio:
 
 | :warning: |
 | :--- |
-| Poiché questi template funzionino, bisogna assicurare che la solution Visual Studio sia in un livello superiore rispetto al progetto; altrimenti i riferimenti ai pacchetti installati via NuGet saranno errati. Nel "wizard", selezionare checkbox "Create directory for solution" dovrebbe fare questo. |
+| Poiché questi template funzionino, bisogna assicurare che la solution Visual Studio sia in un livello superiore rispetto al progetto; altrimenti i riferimenti ai pacchetti installati via NuGet saranno errati. Nel "wizard", selezionare checkbox "Create directory for solution" dovrebbe fare questo. ![Wizard crea nuovo progetto](https://raw.githubusercontent.com/Apex-net/AgendaStartupKit/uploads/create-new-project.jpg) |
 
 
 ## Note per gli sviluppatori
