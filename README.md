@@ -14,7 +14,7 @@ Progetto template con cui partire coi nuovi progetti simil-agenda.
 | Per non confondersi cancellare eventuali versioni precedenti. |
 | Se il percorso (od una sua parte) non esiste, potrebbe essere sufficiente crearlo. |
 | Di solito i template nuovi sono subito disponibili, ma nel dubbio reavviare Visual Studio. |
-
+|  Il pacchetto di ORM Profiler non è quello di Nuge.org ma è su Teamcity. Vedi paragrafo:  [aggiungere internal nuget repository](https://github.com/Apex-net/AgendaBocconi/blob/master/README.md#aggiungere-internal-nuget-repository) |
 
 ## Come usare
 
