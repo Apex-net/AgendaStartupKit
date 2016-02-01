@@ -1,0 +1,12 @@
+﻿@model WebMVC4.Models.GridControlModel
+
+@Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = Model.Name;
+        settings.CallbackRouteValues = new { Controller = "TestGridView", Action = "Show" };
+
+        settings.Columns.Add("UserId");
+        settings.Columns.Add("Nome");
+        settings.Columns.Add("Cognome");
+
+    }).Bind(Model.ViewModel).GetHtml()

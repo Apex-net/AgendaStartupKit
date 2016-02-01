@@ -279,10 +279,12 @@
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestGridViewController.cs" />
     <Compile Include="Controllers\TestDXController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GridControlModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
@@ -428,10 +430,10 @@
     <Content Include="Styles\_crossbrowser_mixin.scss" />
     <Content Include="Settings.StyleCop" />
     <Content Include="Views\TestDX\Index.cshtml" />
+    <Content Include="Views\TestGridView\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
