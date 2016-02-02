@@ -1,6 +1,7 @@
 ﻿namespace WebMVC4.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using Agenda.Model;
     using WebMVC4.Models;
@@ -18,7 +19,7 @@
         {
             using (var context = new AgendaContext())
             {
-                return context.Set<Utenti>();
+                return context.Set<Utenti>().ToList();
             }
         }
     }
