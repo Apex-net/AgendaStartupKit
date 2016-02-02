@@ -61,8 +61,8 @@
       <HintPath>..\packages\ClosedXML.0.75.0\lib\net40-client\ClosedXML.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Apexnet.Agenda.Common.2.0.0\lib\net45\Common.dll</HintPath>
+    <Reference Include="Common, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apexnet.Agenda.Common.3.0.0\lib\net45\Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
