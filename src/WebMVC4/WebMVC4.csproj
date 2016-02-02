@@ -281,6 +281,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestGridViewController.cs" />
     <Compile Include="Controllers\TestDXController.cs" />
+    <Compile Include="Controllers\TestUploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

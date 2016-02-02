@@ -4,6 +4,8 @@
 
 <h2>Test DevExpress</h2>
 
+<h3>Navbar</h3>
+
 @Html.DevExpress().NavBar(settings =>
     {
         settings.Name = "testNavBar";
@@ -12,4 +14,21 @@
         settings.Groups.FindByText("Group2").Expanded = false;
     }).GetHtml()
 
-@Html.Action("Show", "TestGridView")
+<div style="margin: 100px;">
+    <h3>Grid view</h3>
+
+    @Html.Action("Show", "TestGridView")
+</div>
+
+<div style="margin: 100px;">
+    <h3>Uploader</h3>
+
+    @Html.Action(
+        "FileUploader",
+        "TestUpload",
+        new
+        {
+            controlName = "dxFileUploader",
+            identifierName = "file"
+        })
+</div>
