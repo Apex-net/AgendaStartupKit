@@ -31,6 +31,7 @@
           <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
           <ScalarProperty Name="Modulo" ColumnName="Modulo" />
           <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CustomVisibilita" ColumnName="CustomVisibilita" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -43,6 +44,69 @@
           <ScalarProperty Name="Filtro" ColumnName="Filtro" />
           <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
           <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CustomVisibilita" ColumnName="CustomVisibilita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_ESSE3_UTENTI">
+      <EntityTypeMapping TypeName="AgendaModel.V_ESSE3_UTENTI">
+        <MappingFragment StoreEntitySet="V_ESSE3_UTENTI">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="COGNOME" ColumnName="COGNOME" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="COD_FIS" ColumnName="COD_FIS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="EMAIL_ATE" ColumnName="EMAIL_ATE" />
+          <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+          <ScalarProperty Name="PERS_ID" ColumnName="PERS_ID" />
+          <ScalarProperty Name="SOGG_EST_ID" ColumnName="SOGG_EST_ID" />
+          <ScalarProperty Name="DOCENTE_ID" ColumnName="DOCENTE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_ESSE3_GRUPPI_UTENTE">
+      <EntityTypeMapping TypeName="AgendaModel.V_ESSE3_GRUPPI_UTENTE">
+        <MappingFragment StoreEntitySet="V_ESSE3_GRUPPI_UTENTE">
+          <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+          <ScalarProperty Name="GRP_NAME" ColumnName="GRP_NAME" />
+          <ScalarProperty Name="AUTH_PWD_MASTER_LOCATION" ColumnName="AUTH_PWD_MASTER_LOCATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGE_RUOLI_GRP_ESSE3">
+      <EntityTypeMapping TypeName="AgendaModel.RuoloGruppoESSE3">
+        <MappingFragment StoreEntitySet="AGE_RUOLI_GRP_ESSE3">
+          <ScalarProperty Name="RuoloUtenteId" ColumnName="RuoloUtenteId" />
+          <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGE_RUOLO_UTE_FORCED">
+      <EntityTypeMapping TypeName="AgendaModel.RuoloUtenteForced">
+        <MappingFragment StoreEntitySet="AGE_RUOLO_UTE_FORCED">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RuoloUtenteId" ColumnName="RuoloUtenteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGE_RUOLI">
+      <EntityTypeMapping TypeName="AgendaModel.RuoloUtente">
+        <MappingFragment StoreEntitySet="AGE_RUOLI">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+          <ScalarProperty Name="Codice" ColumnName="Codice" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGE_BLOBS">
+      <EntityTypeMapping TypeName="AgendaModel.BlobFile">
+        <MappingFragment StoreEntitySet="AGE_BLOBS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomeFile" ColumnName="NomeFile" />
+          <ScalarProperty Name="Blob" ColumnName="Blob" />
+          <ScalarProperty Name="DataUpload" ColumnName="DataUpload" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

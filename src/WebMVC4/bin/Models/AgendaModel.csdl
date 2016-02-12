@@ -13,6 +13,40 @@
       <End Role="VistaAgenda" EntitySet="AGE_QUERY_CUSTOM" />
       <End Role="VistaCondizione" EntitySet="AGE_QUERY_FILTRI" />
     </AssociationSet>
+    <EntitySet Name="V_ESSE3_UTENTI" EntityType="AgendaModel.V_ESSE3_UTENTI" />
+    <EntitySet Name="V_ESSE3_GRUPPI_UTENTE" EntityType="AgendaModel.V_ESSE3_GRUPPI_UTENTE" />
+    <AssociationSet Name="V_S3_GRUPPI_UTEV_S3_UTE" Association="AgendaModel.V_S3_GRUPPI_UTEV_S3_UTE">
+      <End Role="V_ESSE3_GRUPPI_UTENTE" EntitySet="V_ESSE3_GRUPPI_UTENTE" />
+      <End Role="V_ESSE3_UTENTI" EntitySet="V_ESSE3_UTENTI" />
+    </AssociationSet>
+    <EntitySet Name="AGE_RUOLI_GRP_ESSE3" EntityType="AgendaModel.RuoloGruppoESSE3" />
+    <EntitySet Name="AGE_RUOLO_UTE_FORCED" EntityType="AgendaModel.RuoloUtenteForced" />
+    <EntitySet Name="AGE_RUOLI" EntityType="AgendaModel.RuoloUtente" />
+    <AssociationSet Name="UtentiV_ESSE3_UTENTI" Association="AgendaModel.UtentiV_ESSE3_UTENTI">
+      <End Role="Utenti" EntitySet="AGE_UTENTI" />
+      <End Role="V_ESSE3_UTENTI" EntitySet="V_ESSE3_UTENTI" />
+    </AssociationSet>
+    <AssociationSet Name="V_S3_GRP_UTERuoloGrpS3" Association="AgendaModel.V_S3_GRP_UTERuoloGrpS3">
+      <End Role="V_ESSE3_GRUPPI_UTENTE" EntitySet="V_ESSE3_GRUPPI_UTENTE" />
+      <End Role="RuoloGruppoESSE3" EntitySet="AGE_RUOLI_GRP_ESSE3" />
+    </AssociationSet>
+    <AssociationSet Name="AgeRuoloUteRuoloGrpS3" Association="AgendaModel.AgeRuoloUteRuoloGrpS3">
+      <End Role="RuoloUtente" EntitySet="AGE_RUOLI" />
+      <End Role="RuoloGruppoESSE3" EntitySet="AGE_RUOLI_GRP_ESSE3" />
+    </AssociationSet>
+    <AssociationSet Name="AgeRuoloUteRuoloUtForced" Association="AgendaModel.AgeRuoloUteRuoloUtForced">
+      <End Role="RuoloUtente" EntitySet="AGE_RUOLI" />
+      <End Role="RuoloUtenteForced" EntitySet="AGE_RUOLO_UTE_FORCED" />
+    </AssociationSet>
+    <AssociationSet Name="AgeUteRuoloUteForced" Association="AgendaModel.AgeUteRuoloUteForced">
+      <End Role="Utenti" EntitySet="AGE_UTENTI" />
+      <End Role="RuoloUtenteForced" EntitySet="AGE_RUOLO_UTE_FORCED" />
+    </AssociationSet>
+    <EntitySet Name="AGE_BLOBS" EntityType="AgendaModel.BlobFile" />
+    <AssociationSet Name="AgeUteBlobFile" Association="AgendaModel.AgeUteBlobFile">
+      <End Role="Utenti" EntitySet="AGE_UTENTI" />
+      <End Role="BlobFile" EntitySet="AGE_BLOBS" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AccessiUtente">
     <Key>
@@ -33,6 +67,9 @@
     <Property Type="String" Name="Nome" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Cognome" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AGE_ACCESSI" Relationship="AgendaModel.FK_UtentiAccessiUtente" FromRole="AGE_UTENTI" ToRole="AccessiUtente" />
+    <NavigationProperty Name="V_ESSE3_UTENTI" Relationship="AgendaModel.UtentiV_ESSE3_UTENTI" FromRole="Utenti" ToRole="V_ESSE3_UTENTI" />
+    <NavigationProperty Name="RuoloUtenteForced" Relationship="AgendaModel.AgeUteRuoloUteForced" FromRole="Utenti" ToRole="RuoloUtenteForced" />
+    <NavigationProperty Name="BlobFile" Relationship="AgendaModel.AgeUteBlobFile" FromRole="Utenti" ToRole="BlobFile" />
   </EntityType>
   <Association Name="FK_UtentiAccessiUtente">
     <End Type="AgendaModel.Utenti" Role="AGE_UTENTI" Multiplicity="1" />
@@ -78,6 +115,11 @@
     </Property>
     <NavigationProperty Name="VistaCondizione" Relationship="AgendaModel.QueryCustomFiltri" FromRole="VistaAgenda" ToRole="VistaCondizione" />
     <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CustomVisibilita" Type="String" Nullable="true" MaxLength="255" FixedLength="false" Unicode="true">
+      <Documentation>
+        <LongDescription>funzione DB che se restituisce 1 allora il dato si vede</LongDescription>
+      </Documentation>
+    </Property>
   </EntityType>
   <EntityType Name="QueryFiltri">
     <Key>
@@ -98,6 +140,11 @@
       </Documentation>
     </Property>
     <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CustomVisibilita" Type="String" Nullable="true" MaxLength="255" FixedLength="false" Unicode="true">
+      <Documentation>
+        <LongDescription>funzione DB che se restituisce 1 allora il dato si vede</LongDescription>
+      </Documentation>
+    </Property>
   </EntityType>
   <Association Name="QueryCustomFiltri">
     <End Type="AgendaModel.QueryCustom" Role="VistaAgenda" Multiplicity="1" />
@@ -108,6 +155,159 @@
       </Principal>
       <Dependent Role="VistaCondizione">
         <PropertyRef Name="QueryCustomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="V_ESSE3_UTENTI">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="COGNOME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="NOME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="COD_FIS" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_ATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_ID" Type="Int16" Nullable="false" />
+    <Property Name="PERS_ID" Type="Int32" Nullable="true" />
+    <Property Name="SOGG_EST_ID" Type="Int32" />
+    <Property Name="DOCENTE_ID" Type="Int32" />
+    <NavigationProperty Name="V_ESSE3_GRUPPI_UTENTE" Relationship="AgendaModel.V_S3_GRUPPI_UTEV_S3_UTE" FromRole="V_ESSE3_UTENTI" ToRole="V_ESSE3_GRUPPI_UTENTE" />
+    <NavigationProperty Name="Utenti" Relationship="AgendaModel.UtentiV_ESSE3_UTENTI" FromRole="V_ESSE3_UTENTI" ToRole="Utenti" />
+  </EntityType>
+  <EntityType Name="V_ESSE3_GRUPPI_UTENTE">
+    <Key>
+      <PropertyRef Name="GRP_ID" />
+    </Key>
+    <Property Name="GRP_ID" Type="Int16" Nullable="false" />
+    <Property Name="GRP_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AUTH_PWD_MASTER_LOCATION" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="V_ESSE3_UTENTI" Relationship="AgendaModel.V_S3_GRUPPI_UTEV_S3_UTE" FromRole="V_ESSE3_GRUPPI_UTENTE" ToRole="V_ESSE3_UTENTI" />
+    <NavigationProperty Name="RuoloGruppoESSE3" Relationship="AgendaModel.V_S3_GRP_UTERuoloGrpS3" FromRole="V_ESSE3_GRUPPI_UTENTE" ToRole="RuoloGruppoESSE3" />
+  </EntityType>
+  <Association Name="V_S3_GRUPPI_UTEV_S3_UTE">
+    <End Type="AgendaModel.V_ESSE3_GRUPPI_UTENTE" Role="V_ESSE3_GRUPPI_UTENTE" Multiplicity="1" />
+    <End Type="AgendaModel.V_ESSE3_UTENTI" Role="V_ESSE3_UTENTI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="V_ESSE3_GRUPPI_UTENTE">
+        <PropertyRef Name="GRP_ID" />
+      </Principal>
+      <Dependent Role="V_ESSE3_UTENTI">
+        <PropertyRef Name="GRP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RuoloGruppoESSE3">
+    <Key>
+      <PropertyRef Name="RuoloUtenteId" />
+      <PropertyRef Name="GRP_ID" />
+    </Key>
+    <Property Name="RuoloUtenteId" Type="Int32" Nullable="false" />
+    <Property Name="GRP_ID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="V_ESSE3_GRUPPI_UTENTE" Relationship="AgendaModel.V_S3_GRP_UTERuoloGrpS3" FromRole="RuoloGruppoESSE3" ToRole="V_ESSE3_GRUPPI_UTENTE" />
+    <NavigationProperty Name="RuoloUtente" Relationship="AgendaModel.AgeRuoloUteRuoloGrpS3" FromRole="RuoloGruppoESSE3" ToRole="RuoloUtente" />
+  </EntityType>
+  <EntityType Name="RuoloUtenteForced">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RuoloUtenteId" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RuoloUtente" Relationship="AgendaModel.AgeRuoloUteRuoloUtForced" FromRole="RuoloUtenteForced" ToRole="RuoloUtente" />
+    <Property Name="RuoloUtenteId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Utenti" Relationship="AgendaModel.AgeUteRuoloUteForced" FromRole="RuoloUtenteForced" ToRole="Utenti" />
+  </EntityType>
+  <EntityType Name="RuoloUtente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Modulo" Type="String" Nullable="false" MaxLength="255" />
+    <Property Name="Codice" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Descrizione" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RuoloGruppoESSE3" Relationship="AgendaModel.AgeRuoloUteRuoloGrpS3" FromRole="RuoloUtente" ToRole="RuoloGruppoESSE3" />
+    <NavigationProperty Name="RuoloUtenteForced" Relationship="AgendaModel.AgeRuoloUteRuoloUtForced" FromRole="RuoloUtente" ToRole="RuoloUtenteForced" />
+  </EntityType>
+  <Association Name="UtentiV_ESSE3_UTENTI">
+    <End Type="AgendaModel.Utenti" Role="Utenti" Multiplicity="1" />
+    <End Type="AgendaModel.V_ESSE3_UTENTI" Role="V_ESSE3_UTENTI" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Utenti">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="V_ESSE3_UTENTI">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="V_S3_GRP_UTERuoloGrpS3">
+    <End Type="AgendaModel.V_ESSE3_GRUPPI_UTENTE" Role="V_ESSE3_GRUPPI_UTENTE" Multiplicity="1" />
+    <End Type="AgendaModel.RuoloGruppoESSE3" Role="RuoloGruppoESSE3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="V_ESSE3_GRUPPI_UTENTE">
+        <PropertyRef Name="GRP_ID" />
+      </Principal>
+      <Dependent Role="RuoloGruppoESSE3">
+        <PropertyRef Name="GRP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgeRuoloUteRuoloGrpS3">
+    <End Type="AgendaModel.RuoloUtente" Role="RuoloUtente" Multiplicity="1" />
+    <End Type="AgendaModel.RuoloGruppoESSE3" Role="RuoloGruppoESSE3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RuoloUtente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RuoloGruppoESSE3">
+        <PropertyRef Name="RuoloUtenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgeRuoloUteRuoloUtForced">
+    <End Type="AgendaModel.RuoloUtente" Role="RuoloUtente" Multiplicity="1" />
+    <End Type="AgendaModel.RuoloUtenteForced" Role="RuoloUtenteForced" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RuoloUtente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RuoloUtenteForced">
+        <PropertyRef Name="RuoloUtenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgeUteRuoloUteForced">
+    <End Type="AgendaModel.Utenti" Role="Utenti" Multiplicity="1" />
+    <End Type="AgendaModel.RuoloUtenteForced" Role="RuoloUtenteForced" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utenti">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RuoloUtenteForced">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BlobFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeFile" Type="String" Nullable="false" MaxLength="255" />
+    <Property Name="Blob" Type="Binary" Nullable="false" />
+    <Property Name="DataUpload" Type="DateTime" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Utenti" Relationship="AgendaModel.AgeUteBlobFile" FromRole="BlobFile" ToRole="Utenti" />
+  </EntityType>
+  <Association Name="AgeUteBlobFile">
+    <End Type="AgendaModel.Utenti" Role="Utenti" Multiplicity="1" />
+    <End Type="AgendaModel.BlobFile" Role="BlobFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utenti">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="BlobFile">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
