@@ -48,3 +48,15 @@ a {
     }
 }
 
+.dxeMemoEditAreaSys,
+input[type="text"].dxeEditAreaSys, 
+input[type="password"].dxeEditAreaSys 
+{
+    height: auto;
+}
+.dxucEditArea,
+input[type="text"].dxucEditArea /*Bootstrap correction*/
+{
+    padding: 1px;
+    height: auto;
+}

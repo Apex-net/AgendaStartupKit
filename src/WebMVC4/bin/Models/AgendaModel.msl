@@ -32,6 +32,7 @@
           <ScalarProperty Name="Modulo" ColumnName="Modulo" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="CustomVisibilita" ColumnName="CustomVisibilita" />
+          <ScalarProperty Name="AddCountColumn" ColumnName="AddCountColumn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

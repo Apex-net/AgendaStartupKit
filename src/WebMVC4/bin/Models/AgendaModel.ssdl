@@ -78,6 +78,7 @@
     <Property Name="Modulo" Type="nvarchar2" Nullable="true" MaxLength="255" />
     <Property Name="Note" Type="nvarchar2" Nullable="true" MaxLength="2000" />
     <Property Name="CustomVisibilita" Type="nvarchar2" Nullable="true" MaxLength="255" />
+    <Property Name="AddCountColumn" Type="number" Nullable="false" Precision="5" />
   </EntityType>
   <EntityType Name="AGE_QUERY_FILTRI">
     <Key>

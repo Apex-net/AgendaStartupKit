@@ -2,11 +2,22 @@
 
 @Html.DevExpress().GridView(settings =>
     {
-        settings.Name = Model.Name;
+        settings.Name = "UtentiGrid";
+        settings.KeyFieldName = "UserId";
         settings.CallbackRouteValues = new { Controller = "TestGridView", Action = "Show" };
 
         settings.Columns.Add("UserId");
         settings.Columns.Add("Nome");
         settings.Columns.Add("Cognome");
 
-    }).Bind(Model.ViewModel).GetHtml()
+
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFooter = true;
+        settings.EnableRowsCache = false;
+
+    }).BindToLINQ(string.Empty, string.Empty, (s, e) =>
+    {
+        e.QueryableSource = Model.ViewModel;
+        e.KeyExpression = "UserId";
+    }).GetHtml()

@@ -1,6 +1,7 @@
 namespace WebMVC4.Models
 {
-    using System.Collections.Generic;
+    using System.Linq;
+    using Agenda.Model;
 
     public class GridControlModel
     {
@@ -11,6 +12,6 @@ namespace WebMVC4.Models
 
         public string Name { get; set; }
 
-        public IEnumerable<object> ViewModel { get; set; }
+        public IQueryable<Utenti> ViewModel { get; set; }
     }
 }

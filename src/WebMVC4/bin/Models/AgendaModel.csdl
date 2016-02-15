@@ -120,6 +120,11 @@
         <LongDescription>funzione DB che se restituisce 1 allora il dato si vede</LongDescription>
       </Documentation>
     </Property>
+    <Property Name="AddCountColumn" Type="Int16" Nullable="false">
+      <Documentation>
+        <Summary>boolean</Summary>
+      </Documentation>
+    </Property>
   </EntityType>
   <EntityType Name="QueryFiltri">
     <Key>

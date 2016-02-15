@@ -1,5 +1,6 @@
 ﻿namespace WebMVC4.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -8,19 +9,18 @@
 
     public class TestGridViewController : Controller
     {
+        private AgendaContext context = new AgendaContext();
+
         public ActionResult Show()
         {
-            var model = new GridControlModel("testGridView") { ViewModel = GetUtenti() };
+            var model = new GridControlModel("testGridView") { ViewModel = this.GetUtenti() };
 
             return this.PartialView(model);
         }
 
-        private static IEnumerable<object> GetUtenti()
+        private IQueryable<Utenti> GetUtenti()
         {
-            using (var context = new AgendaContext())
-            {
-                return context.Set<Utenti>().ToList();
-            }
+            return this.context.Set<Utenti>().Where(u => u.Nome != null);
         }
     }
 }
