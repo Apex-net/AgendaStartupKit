@@ -3,15 +3,11 @@
         <a href="#" class="brand-logo">Web MVC4</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="http://example.com/">Link1</a></li>
-            <li><a href="http://example.com/">Link2</a></li>
-            <li><a href="http://example.com/">Link3</a></li>
+            <li>@Html.ActionLink("Home","Index","Home")</li>
             <li>@Html.ActionLink("Test DevExpress", "Index", "TestDX")</li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="http://example.com/">Link1</a></li>
-            <li><a href="http://example.com/">Link2</a></li>
-            <li><a href="http://example.com/">Link3</a></li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("Test DevExpress", "Index", "TestDX")</li>
         </ul>
     </div>

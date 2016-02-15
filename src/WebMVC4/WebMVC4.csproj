@@ -15,7 +15,7 @@
     <AssemblyName>WebMVC4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -306,22 +306,7 @@
     <Content Include="bin\System.Web.WebPages.Deployment.dll" />
     <Content Include="bin\System.Web.WebPages.dll" />
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
-    <Content Include="content\alertifyjs\alertify.css" />
-    <Content Include="content\alertifyjs\alertify.min.css" />
-    <Content Include="content\alertifyjs\alertify.rtl.css" />
-    <Content Include="content\alertifyjs\alertify.rtl.min.css" />
-    <Content Include="content\alertifyjs\themes\bootstrap.css" />
-    <Content Include="content\alertifyjs\themes\bootstrap.min.css" />
-    <Content Include="content\alertifyjs\themes\bootstrap.rtl.css" />
-    <Content Include="content\alertifyjs\themes\bootstrap.rtl.min.css" />
-    <Content Include="content\alertifyjs\themes\default.css" />
-    <Content Include="content\alertifyjs\themes\default.min.css" />
-    <Content Include="content\alertifyjs\themes\default.rtl.css" />
-    <Content Include="content\alertifyjs\themes\default.rtl.min.css" />
-    <Content Include="content\alertifyjs\themes\semantic.css" />
-    <Content Include="content\alertifyjs\themes\semantic.min.css" />
-    <Content Include="content\alertifyjs\themes\semantic.rtl.css" />
-    <Content Include="content\alertifyjs\themes\semantic.rtl.min.css" />
+    <Content Include="content\alertify\alertify.css" />
     <Content Include="content\css\select2.css" />
     <Content Include="content\css\select2.min.css" />
     <Content Include="content\materialize\css\materialize.css" />
@@ -354,8 +339,8 @@
     <Content Include="bin\Models\AgendaModel.msl" />
     <Content Include="bin\Models\AgendaModel.csdl" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\alertify.js" />
-    <Content Include="Scripts\alertify.min.js" />
+    <Content Include="Scripts\alertify\alertify.js" />
+    <Content Include="Scripts\alertify\ngAlertify.js" />
     <Content Include="Scripts\i18n\az.js" />
     <Content Include="Scripts\i18n\bg.js" />
     <Content Include="Scripts\i18n\ca.js" />
@@ -460,7 +445,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57414</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57414/</IISUrl>
+          <IISUrl>http://localhost/WebMVC4</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
